@@ -4,10 +4,11 @@ const statustext = document.querySelector('.status-text');
 
 checkin_button.addEventListener('click', function() {
     statustext.textContent = 'Currently Checked In'
-    status_text.style.color = 'green'
+    statustext.style.color = 'green'
 });
 
 checkout_button.addEventListener('click', function() {
     statustext.textContent = 'Currently Checked Out'
-    status_text.style.color = 'red'
+    statustext.style.color = 'red'
 });
+
