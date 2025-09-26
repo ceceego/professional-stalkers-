@@ -10,30 +10,29 @@
 <body>
 
   <div class="container">
-      <h2>Enter Your Login Information!</h2>
+    <h2>Login</h2>
 
 
     <!-- Form -->
-    <form class="form" id="loginForm">
-      <label class="text" for="username">Username:</label><br/>
-      <input class ="text" id="username" required /><br/><br/>
+      <form class="form" id="loginForm">
+          <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" required />
+          </div>
 
-      <label class="text" for="password">Password:</label><br/>
-      <input type="password" id="password" required /><br/><br/>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required />
+          </div>
 
-      <button class="submit-btn" type="submit">Login</button>
-    </form>
+          <button class="submit-btn" type="submit">Login</button>
+      </form>
 
-    <p id="loginMessage"></p>
-
-
-    </div>
+      <p id="loginMessage"></p>
+  </div>
 
   <!-- Script-->
   <script src="login_script.js"></script>
   <!-- End Script -->
 </body>
 </html>
-
-
-
