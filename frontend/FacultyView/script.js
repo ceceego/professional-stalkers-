@@ -16,7 +16,8 @@ checkout_button.addEventListener('click', function() {
 });
 
 const addTimeSlotButton = document.getElementById('add-time-btn');
-const timeSlotsContainer = document.querySelector('.save-hours-btn');
+// AI FIXED 10/6/2025, prompt: "help fix a problem where the add office hours goes into the save button": Changed from '.save-hours-btn' to '#office-hours-container'
+const timeSlotsContainer = document.getElementById('office-hours-container');
 
 addTimeSlotButton.addEventListener('click', () => {
   const newTimeSlotDiv = document.createElement('div');
@@ -36,3 +37,4 @@ addTimeSlotButton.addEventListener('click', () => {
 
   timeSlotsContainer.appendChild(newTimeSlotDiv);
 });
+
