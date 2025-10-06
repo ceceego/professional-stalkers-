@@ -14,3 +14,25 @@ checkout_button.addEventListener('click', function() {
     statustext.style.color = '#A41D36'
     indicatorstatus.style.backgroundColor = '#A41D36'
 });
+
+const addTimeSlotButton = document.getElementById('add-time-btn');
+const timeSlotsContainer = document.querySelector('.save-hours-btn');
+
+addTimeSlotButton.addEventListener('click', () => {
+  const newTimeSlotDiv = document.createElement('div');
+  newTimeSlotDiv.classList.add('time-slot');
+
+  const startTimeInput = document.createElement('input');
+  startTimeInput.type = 'time';
+  startTimeInput.name = 'startTime[]';
+
+  const endTimeInput = document.createElement('input');
+  endTimeInput.type = 'time';
+  endTimeInput.name = 'endTime[]';
+
+  newTimeSlotDiv.appendChild(startTimeInput);
+  newTimeSlotDiv.appendChild(document.createTextNode(' - ')); 
+  newTimeSlotDiv.appendChild(endTimeInput);
+
+  timeSlotsContainer.appendChild(newTimeSlotDiv);
+});
