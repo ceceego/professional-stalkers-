@@ -2,6 +2,8 @@ const checkin_button = document.getElementById('checkin-btn');
 const checkout_button = document.getElementById('checkout-btn')
 const statustext = document.querySelector('.status-text');
 const indicatorstatus = document.querySelector('.indicator');
+const timeSlotsContainer = document.getElementById('office-hours-container');
+const addTimeSlotButton = document.getElementById('add-time-btn');
 
 checkin_button.addEventListener('click', function() {
     statustext.textContent = 'Currently Checked In'
@@ -15,13 +17,20 @@ checkout_button.addEventListener('click', function() {
     indicatorstatus.style.backgroundColor = '#A41D36'
 });
 
-const addTimeSlotButton = document.getElementById('add-time-btn');
-// AI FIXED 10/6/2025, prompt: "help fix a problem where the add office hours goes into the save button": Changed from '.save-hours-btn' to '#office-hours-container'
-const timeSlotsContainer = document.getElementById('office-hours-container');
 
 addTimeSlotButton.addEventListener('click', () => {
   const newTimeSlotDiv = document.createElement('div');
   newTimeSlotDiv.classList.add('time-slot');
+
+  const daySelect = document.createElement('select');
+  daySelect.name = 'dayOfWeek[]';
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  days.forEach(day => {
+    const option = document.createElement('option');
+    option.value = day.toLowerCase();
+    option.textContent = day;
+    daySelect.appendChild(option);
+  });
 
   const startTimeInput = document.createElement('input');
   startTimeInput.type = 'time';
@@ -31,10 +40,10 @@ addTimeSlotButton.addEventListener('click', () => {
   endTimeInput.type = 'time';
   endTimeInput.name = 'endTime[]';
 
+  newTimeSlotDiv.appendChild(daySelect);
   newTimeSlotDiv.appendChild(startTimeInput);
-  newTimeSlotDiv.appendChild(document.createTextNode(' - ')); 
+  newTimeSlotDiv.appendChild(document.createTextNode(' to '));
   newTimeSlotDiv.appendChild(endTimeInput);
 
   timeSlotsContainer.appendChild(newTimeSlotDiv);
 });
-
