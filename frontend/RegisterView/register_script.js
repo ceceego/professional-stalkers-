@@ -10,9 +10,9 @@ document.querySelector("#loginForm").addEventListener("submit", function (e) {
     const password = document.getElementById("password").value
 
     if (usertype === "faculty"){
-        window.location.href = "index.html";
+        window.location.href = "faculty_index.html";
     }
     else if (usertype === "student"){
-        window.location.href = "index.html"; // replace this with student dashboard when done
+        window.location.href = "student_index.html"; // replace this with student dashboard when done
     }
 });
