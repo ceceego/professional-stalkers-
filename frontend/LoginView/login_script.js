@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     message.style.color = "green";
     document.getElementById("username").value = ''
     document.getElementById("password").value = ''
-    window.location.href = "index.html";
+    window.location.href = "faculty_index.html";
   } else if (!userDB[username]){
     message.textContent = "❌ Invalid username.";
     message.style.color = "red";
