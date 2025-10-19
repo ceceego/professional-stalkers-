@@ -1,4 +1,7 @@
 // OfficeHoursController.js
+
+
+// link between Model (data/business logic) and View (US/Presentation) 
 class OfficeHoursController {
     constructor(model, view) {
         this.model = model;
@@ -8,3 +11,12 @@ class OfficeHoursController {
         
         this.initializeEventListeners();
     }
+
+
+ initializeEventListeners() {
+    //events
+}
+
+//authentication -> login, logout, create accoun, update view 
+//faculty -> check in, check out, set office hours, change office hours
+//student -> get all faculty, toggle fav, report absence, notifcation 
