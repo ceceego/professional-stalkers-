@@ -1,1 +1,10 @@
-
+// OfficeHoursController.js
+class OfficeHoursController {
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+        this.currentUser = null;
+        this.isLoggedIn = false;
+        
+        this.initializeEventListeners();
+    }
