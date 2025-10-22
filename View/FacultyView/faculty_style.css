@@ -138,9 +138,23 @@ body {
     transition: background-color 0.3s;
 }
 
+.remove-time-btn {
+    color: var(--primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
 .save-hours-btn:hover {
     background-color: var(--primary-dark);
 }
+
+
+
+
 
 /* Status Card */
 .status-card {
@@ -227,5 +241,6 @@ body {
     font-size: 18px;
     margin-top: 5px;
 }
+
 
 
