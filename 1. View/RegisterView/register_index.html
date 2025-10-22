@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+<link rel="stylesheet" href="register_style.css">
+</head>
+<body>
+    <!-- 9/28 Used Ai to aid with html
+     promt: im programming a sign-up page for my project.
+      Explain to the user that the user name needs to be like the first initial of their first name then their full last name like "John Smith" = JSmith-->
+
+  <div class="container">
+    <div class="container">
+    <h2>Sign up for Professor Office Hour Tracker</h2>
+
+    <!-- Form -->
+    <form class="form" id="loginForm">
+      <!-- First and Last Name in a row -->
+      <div class="form-group name-row">
+        <div class="name-field">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" name="firstname" required />
+        </div>
+        <div class="name-field">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" required />
+        </div>
+      </div>
+
+      <!-- Username field with explanation -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+        <div class="username-note">
+          Username format: First initial + Last name (e.g., john smith = jsmith)
+        </div>
+      </div>
+
+      <!-- User type selection -->
+      <div class="form-group">
+        <label for="usertype">Who are you?</label>
+        <select id="usertype" name="usertype" required>
+          <option value="" disabled selected>Select your role</option>
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+        </select>
+      </div>
+
+      <!-- Password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <button class="submit-btn" type="submit">Register</button>
+    </form>
+
+    <p id="loginMessage"></p>
+  </div>
+
+  <!-- Script-->
+  <script src="login_script.js"></script>
+  <!-- End Script -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Office Hour Tracker</title>
+
+      <link rel="stylesheet" href="student_style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">Office Hour Tracker</div>
+      <div class="user-info">
+          <span>Welcome, Student</span>
+          <div class="avatar">S</div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    
+
+    <!-- Favorite Professors Section -->
+    <h2 class="section-title">Favorited Professors</h2>
+    <div class="main-content" id="favoriteProfessors">
+      <div class="professor-card">
+
+        <!-- header (name of professor and favorite button)-->
+        <div class="professor-header">
+          <div class="professor-info">
+            <h3>Jane Smith</h3>
+          </div>
+          <button class="favorite-btn">★</button>
+        </div>
+        
+        <!-- indicator status -->
+        <div class="status-indicator ${statusClass}">
+          <div class="indicator"></div>
+          <span class="status-text">Current in Office</span>
+        </div>
+        
+
+        <!-- office hours-->
+        <div class="office-hours">
+            <h4>Office Hours</h4>
+            <ul class="office-hours-list">
+              <li>
+                <span class="day">Monday</span>
+                <span class="time">4:30pm</span>
+              </li>
+            </ul>
+        </div>   
+        
+        
+    </div>
+    </div>
+
+      <!-- All Professors Section -->
+    <h2 class="section-title">All Professors</h2>
+    <div class="main-content" id="allProfessors">
+        <!-- Search Bar -->
+      <!--10/10/2025: used chatgpt to make search bar- prompt: please help me make a search bar in html and css-->
+      <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search for professors..." id="searchInput">
+        <div class="search-results" id="searchResults">
+        </div>
+      </div>
+    </div>
+    <script src="student_script.js"></script>
+</body>
+</html>
+
+
