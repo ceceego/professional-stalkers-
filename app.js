@@ -1,52 +1,31 @@
-const express = require("express");
-const fs = require("fs");
-const bodyParser = require("body-parser");
-const path = require("path");
+import express from "express";
+import cors from "cors";
+import { db } from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import facultyRoutes from "./routes/facultyRoutes.js";
+import studentRoutes from "./routes/studentRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const DATA_FILE = path.join(__dirname, "users.json");
+app.use(cors());
+app.use(express.json());
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("views"));
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/faculty", facultyRoutes);
+app.use("/api/student", studentRoutes);
 
-// Load existing users
-let users = [];
-if (fs.existsSync(DATA_FILE)) {
-  users = JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
-}
+// Simple health check
+app.get("/", (req, res) => res.send("Office Hours Tracker API running"));
 
-// Home page (Signup form)
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "1. Views", "register_index.html"));
-});
-
-// Original version: Signup: Create new user
-app.post("/register", (req, res) => {
-  const { name, email } = req.body;
-  if (!name || !email) {
-    return res.send("Please enter both name and email.");
+// Test DB connection
+(async () => {
+  try {
+    await db.query("SELECT 1");
+    console.log("✅ MySQL connected");
+  } catch (err) {
+    console.error("❌ MySQL connection failed:", err);
   }
+})();
 
-  const newUser = { id: Date.now(), name, email };
-  users.push(newUser);
-  fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
-
-  res.redirect("/users");
-});
-
-
-// // New version: 
-app.post("/signup", (req, res) => {
-  const { name, email, phone } = req.body;
-  if (!name || !email || !phone) {
-    return res.send("Please enter both name, email, and phone.");
-  }
-
-  const newUser = { id: Date.now(), name, email, phone };
-  users.push(newUser);
-  fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
-
-  res.redirect("/users");
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server listening on ${PORT}`));

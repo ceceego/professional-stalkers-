@@ -1,0 +1,246 @@
+:root {
+    --primary: #A41D36;
+    --primary-dark: #79242F;
+    --neutral: #A4A9AD;
+    --light: #F5F5F5;
+    --white: #FFFFFF;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --green:  #2ecc71;
+    }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.left-panel {
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.right-panel {
+    width: 350px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.form-title, .status-title {
+    color: var(--primary);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+/* Form Elements */
+.time-slot {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.time-slot select, .time-slot input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.day-select {
+    min-width: 120px;
+}
+
+.add-time-btn {
+    color: var(--primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.add-time-btn:hover {
+    color: var(--primary-dark);
+}
+
+.save-hours-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.remove-time-btn {
+    color: var(--primary);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.save-hours-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+
+
+
+
+/* Status Card */
+.status-card {
+    text-align: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+    gap: 10px;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
+.checked-in .indicator {
+    background-color: var(--green);
+    box-shadow: 0 0 10px var(--green);
+}
+
+.checked-in .status-text {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.status-text {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.checkin-btn, .checkout-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.checkin-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.checkin-btn:hover {
+    background-color: #27ae60;
+}
+
+.checkout-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.checkout-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+
+/* Current Status */
+.current-status {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+}
+
+.current-status p {
+    font-size: 16px;
+    color: var(--primary) !important;
+}
+
+.next-office-hours {
+    font-weight: bold;
+    color: var(--primary) !important;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+
+
