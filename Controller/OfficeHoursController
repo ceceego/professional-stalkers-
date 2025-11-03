@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 n// OfficeHoursController.js
+=======
+// OfficeHoursController.js
+>>>>>>> fb799d1c8db0db472e26fbbf1062cd4368989ec6
 
 
 // link between Model (data/business logic) and View (US/Presentation) 
