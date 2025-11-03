@@ -17,6 +17,10 @@ class OfficeHoursController {
     //events
 }
 
-//authentication -> login, logout, create accoun, update view 
+}
+
+//authentication -> login, logout, create account, update view 
 //faculty -> check in, check out, set office hours, change office hours
-//student -> get all faculty, toggle fav, report absence, notifcation 
+//student -> get all faculty, toggle fav, report absence, notification
+
+
