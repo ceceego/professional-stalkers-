@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   },
   "name": "professor-office-hour",
@@ -14,7 +15,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ceceego/professional-stalkers-.git"
