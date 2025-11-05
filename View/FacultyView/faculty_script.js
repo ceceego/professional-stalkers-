@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const checkin_button = document.getElementById('checkin-btn');
 const checkout_button = document.getElementById('checkout-btn')
 const statustext = document.querySelector('.status-text');
@@ -60,4 +59,3 @@ removeTimeSlotButton.addEventListener('click', () =>{
     lastSlot.remove();
   }
 });
->>>>>>> fb799d1c8db0db472e26fbbf1062cd4368989ec6
