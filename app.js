@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./Model/db.js");
+const mysql = require("mysql2");
 
 const app = express();
 app.use(cors());
