@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="register_style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Sign up for Professor Office Hour Tracker</h2>
+
+    <form class="form" id="registerForm">
+      <div class="form-group name-row">
+        <div class="name-field">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" required />
+        </div>
+        <div class="name-field">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="usertype">Who are you?</label>
+        <select id="usertype" required>
+          <option value="" disabled selected>Select your role</option>
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+      </div>
+
+      <button class="submit-btn" type="submit">Register</button>
+    </form>
+
+    <p id="loginMessage" class="message"></p>
+  </div>
+
+  <script src="register_script.js"></script>
+</body>
+</html>
