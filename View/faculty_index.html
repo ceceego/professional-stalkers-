@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office Hours Tracker</title>
+  <link rel="stylesheet" href="faculty_style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">Office Hour Tracker</div>
+      <div class="user-info">
+        <div class="avatar">JD</div>
+        <span>Dr. Jane Doe</span>
+      </div>
+    </div>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Left Panel: Office Hours Form -->
+      <div class="left-panel">
+        <div class="office-hours-form">
+          <h2 class="form-title">Manage Office Hours</h2>
+
+          <!-- ✅ Move your first time-slot INSIDE this container -->
+          <div id="office-hours-container">
+            <div class="time-slot">
+              <select class="day-select">
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+              </select>
+              <input type="time" value="09:00">
+              <span>to</span>
+              <input type="time" value="11:00">
+            </div>
+          </div>
+          <!-- ✅ end container -->
+
+          <button class="add-time-btn" id="add-time-btn">+ Add Another Time Slot</button>
+          <button class="remove-time-btn" id="remove-time-btn">- Remove Time Slot</button>
+          <button class="save-hours-btn">Save Office Hours</button>
+        </div>
+      </div>
+      <!-- End Left Panel -->
+
+      <!-- Right Panel: Check in/Check out -->
+      <div class="right-panel">
+        <div class="status-card">
+          <h2 class="status-title">Office Hour Status</h2>
+          
+          <!-- Status Indicator -->
+          <div class="status-indicator">
+            <div class="indicator"></div>
+            <span class="status-text">Currently Checked Out</span>
+          </div>
+          
+          <!-- Buttons -->
+          <button class="checkin-btn" id="checkin-btn">Check In</button>
+          <button class="checkout-btn" id="checkout-btn">Check Out</button>
+        </div>
+      </div>
+      <!-- End Right Panel -->
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Current Status -->
+    <div class="current-status">
+      <p>Next Office Hours:</p>
+      <p class="next-office-hours">------</p>
+    </div>
+    <!-- End Current Status -->
+
+  </div>
+
+  <script src="faculty_script.js"></script>
+</body>
+</html>
