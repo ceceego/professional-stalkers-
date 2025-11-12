@@ -33,8 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
         messageEl.style.color = "red";
       }
     } catch (err) {
-      messageEl.textContent = "❌ Server error. Please try again later.";
-      messageEl.style.color = "red";
+  // Specific handling for network / fetch errors
+  console.error("Registration request failed:", err);
+  messageEl.textContent = "❌ Network or server error. Please try again later.";
+  messageEl.style.color = "red";
     }
   });
 });
