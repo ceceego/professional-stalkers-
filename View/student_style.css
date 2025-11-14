@@ -83,12 +83,9 @@ body {
     outline: 2px solid var(--primary);
 }
 
-
-
-/* Main Content */
 .main-content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 25px;
 }
 
@@ -148,18 +145,9 @@ body {
     background-color: var(--primary);
 }
 
-.checked-in .indicator {
-    background-color: var(--green);
-    box-shadow: 0 0 10px var(--green);
-}
-
 .status-text {
     font-size: 14px;
     font-weight: 500;
-}
-
-.checked-in .status-text {
-    color: var(--green);
 }
 
 .office-hours {
@@ -193,11 +181,25 @@ body {
     color: var(--neutral);
 }
 
-
 /* Section Title */
 .section-title {
     color: var(--primary);
     margin: 30px 0 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid #eaeaea;
+}
+
+.faculty-status {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.faculty-status.checked-in {
+  color: #2ecc71; /* green */
+}
+
+.faculty-status.checked-out {
+  color: #A41D36; /* red */
 }
