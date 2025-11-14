@@ -37,7 +37,7 @@ router.get("/faculty", async (req, res) => {
   }
 });
 
-// 🧩 Get a single student's info by username
+// Get active student's info by username
 router.get("/students/:username", async (req, res) => {
   const { username } = req.params;
 
