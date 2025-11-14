@@ -3,17 +3,40 @@ const db = require("../Config/db.js");
 // ✅ GET all office hours for a faculty member
 exports.getOfficeHours = async (req, res) => {
   const { username } = req.query;
-
   if (!username) return res.status(400).json({ message: "Missing faculty username" });
 
   try {
-    const [rows] = await db.query("SELECT * FROM office_hours WHERE faculty_username = ?", [username]);
-    res.status(200).json(rows);
+    // 1️⃣ Get office hours
+    const [officeHoursRows] = await db.query(
+      "SELECT day_of_week, start_time, end_time, location FROM office_hours WHERE faculty_username = ?",
+      [username]
+    );
+
+    // 2️⃣ Get current_status from users table
+    const [statusRows] = await db.query(
+      "SELECT current_status FROM users WHERE username = ? AND usertype = 'faculty'",
+      [username]
+    );
+
+    const current_status = statusRows.length ? statusRows[0].current_status : "checked_out";
+
+    const formattedHours = officeHoursRows.map(h => ({
+      day_of_week: h.day_of_week,
+      start_time: h.start_time,
+      end_time: h.end_time,
+      location: h.location
+    }));
+
+    res.json({
+      current_status,
+      office_hours: formattedHours
+    });
   } catch (err) {
-    console.error("Error fetching office hours:", err);
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 exports.saveOfficeHours = async (req, res) => {
   const { username, officeHours } = req.body; // expects array of slots
