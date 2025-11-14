@@ -22,6 +22,8 @@ app.get("/", (req, res) => {
 app.use("/", require("./Routes/register_routes.js"));
 app.use("/", require("./Routes/login_routes.js"));
 app.use("/", require("./Routes/faculty_routes.js"));
+app.use("/", require("./Routes/student_routes.js"));
+app.use("/", require("./Routes/favorites_routes.js"));
 
 // ✅ Start server
 const PORT = process.env.PORT || 5050;
