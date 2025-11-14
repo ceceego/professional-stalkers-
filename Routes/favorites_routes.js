@@ -2,10 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../Config/db.js");
 
-/**
- * 🧩 GET all favorites for a specific student
- * Example: GET /favorites/student1
- */
+// get all favorites for a specific student
 router.get("/favorites/:student_username", async (req, res) => {
   const { student_username } = req.params;
 
@@ -23,10 +20,7 @@ router.get("/favorites/:student_username", async (req, res) => {
   }
 });
 
-/**
- * ⭐ POST /favorites/add - Add a favorite for a student
- * Body: { student_username, faculty_username }
- */
+// Add a favorite for a student
 router.post("/favorites/add", async (req, res) => {
   const { student_username, faculty_username } = req.body;
 
@@ -57,10 +51,7 @@ router.post("/favorites/add", async (req, res) => {
   }
 });
 
-/**
- * ❌ POST /favorites/remove - Remove a favorite for a student
- * Body: { student_username, faculty_username }
- */
+// Remove a favorite for a student
 router.post("/favorites/remove", async (req, res) => {
   const { student_username, faculty_username } = req.body;
 
