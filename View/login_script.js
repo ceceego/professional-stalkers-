@@ -23,6 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
           localStorage.setItem("facultyUsername", username);
           window.location.href = "./faculty_index.html";
         } else if (data.userType === "student") {
+          localStorage.setItem("student_username", username);
           window.location.href = "./student_index.html";
         } else {
           window.location.href = "./faculty_index.html";
