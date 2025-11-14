@@ -116,8 +116,13 @@ body {
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
+    cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s;
+}
+
+.add-time-btn:hover {
+    color: var(--primary-dark);
 }
 
 .office-btn-input {
@@ -139,10 +144,6 @@ body {
 }
 
 .save-office-num:hover {
-    color: var(--primary-dark);
-}
-
-.add-time-btn:hover {
     color: var(--primary-dark);
 }
 
@@ -172,10 +173,6 @@ body {
 .save-hours-btn:hover {
     background-color: var(--primary-dark);
 }
-
-
-
-
 
 /* Status Card */
 .status-card {
@@ -240,7 +237,6 @@ body {
 .checkout-btn:hover {
     background-color: var(--primary-dark);
 }
-
 
 /* Current Status */
 .current-status {
