@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Office Hours Tracker</title>
+  <title>Office Hours Tracker </title>
+
   <link rel="stylesheet" href="faculty_style.css">
+
+
+  <!-- Notes  -->
+  <!-- AI USE: 
+    9/14: Prompt: Help edit this code, the Right panel is currently inside of the Left making the html and css off.   
+          result: closed the missing </div> in the header. Moved left-panel and right-panel to be siblings inside .container (instead of nested incorrectly).
+            Removed extra closing tags that broke the structure.Clean indentation so you can see the hierarchy clearly.
+  '-->
 </head>
 <body>
   <div class="container">
@@ -13,38 +22,34 @@
     <div class="header">
       <div class="logo">Office Hour Tracker</div>
       <div class="user-info">
-        <!-- Placeholder text will be replaced dynamically -->
-        <span>Dr. Faculty</span>
-        <!-- Avatar placeholder, will show last name initial -->
-        <div class="avatar">F</div>
+        <div class="avatar">JD</div>
+        <span>Dr. Jane Doe</span>
       </div>
     </div>
     <!-- End Header -->
 
     <!-- Main Content -->
     <div class="main-content">
-
       <!-- Left Panel: Office Hours Form -->
       <div class="left-panel">
         <div class="office-hours-form">
           <h2 class="form-title">Manage Office Hours</h2>
-
-          <!-- Time slots container -->
-          <div id="office-hours-container">
-            <div class="time-slot">
-              <select class="day-select">
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-              </select>
-              <input type="time" value="09:00">
-              <span>to</span>
-              <input type="time" value="11:00">
-            </div>
+          
+          <div class="time-slot">
+            <select class="day-select">
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+            </select>
+            <input type="time" value="09:00">
+            <span>to</span>
+            <input type="time" value="11:00">
           </div>
-
+          
+          <div id="office-hours-container"></div>
+          
           <button class="add-time-btn" id="add-time-btn">+ Add Another Time Slot</button>
           <button class="remove-time-btn" id="remove-time-btn">- Remove Time Slot</button>
           <div>
@@ -53,8 +58,8 @@
         </div>
           <button class="save-hours-btn">Save Office Hours</button>
         </div>
-      </div>
-      <!-- End Left Panel -->
+    </div>
+    <!-- End Left Panel -->
 
       <!-- Right Panel: Check in/Check out -->
       <div class="right-panel">
@@ -73,20 +78,24 @@
         </div>
       </div>
       <!-- End Right Panel -->
-
     </div>
     <!-- End Main Content -->
-
+    
+    <!-- Extra Notes -->
+    <div class="notes-status">
+      <textarea type="text" class="Notes" placeholder="Write any notes about office hours, office, etc..."></textarea>
+      <button class="save-notes-btn">Save notes</button>
+    </div>
+    <!-- End Extra Notes-->
+    
     <!-- Current Status -->
     <div class="current-status">
       <p>Next Office Hours:</p>
       <p class="next-office-hours">------</p>
     </div>
     <!-- End Current Status -->
-
   </div>
-
-  <!-- Link to updated JS -->
   <script src="faculty_script.js"></script>
 </body>
 </html>
+<!--  -->
