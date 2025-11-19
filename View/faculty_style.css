@@ -116,13 +116,8 @@ body {
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
-    cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s;
-}
-
-.add-time-btn:hover {
-    color: var(--primary-dark);
 }
 
 .office-btn-input {
@@ -144,6 +139,10 @@ body {
 }
 
 .save-office-num:hover {
+    color: var(--primary-dark);
+}
+
+.add-time-btn:hover {
     color: var(--primary-dark);
 }
 
@@ -173,6 +172,10 @@ body {
 .save-hours-btn:hover {
     background-color: var(--primary-dark);
 }
+
+
+
+
 
 /* Status Card */
 .status-card {
@@ -238,6 +241,7 @@ body {
     background-color: var(--primary-dark);
 }
 
+
 /* Current Status */
 .current-status {
     background-color: white;
@@ -257,4 +261,46 @@ body {
     color: var(--primary) !important;
     font-size: 18px;
     margin-top: 5px;
+}
+
+/* Notes */
+.notes-status {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+}
+
+.notes-status p {
+    font-size: 16px;
+    color: var(--primary) !important;
+}
+
+.Notes{
+    font-weight: normal;
+    color: var(--shadow) !important;
+    font-size: 12px;
+    margin-top: 5px;
+    width: 100%;
+    height: 70px;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.save-notes-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.save-notes-btn:hover {
+    background-color: var(--primary-dark);
 }
