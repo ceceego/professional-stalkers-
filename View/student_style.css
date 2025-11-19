@@ -131,20 +131,6 @@ body {
     color: gold;
 }
 
-.status-indicator {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    gap: 8px;
-}
-
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: var(--primary);
-}
-
 .status-text {
     font-size: 14px;
     font-weight: 500;
@@ -202,4 +188,27 @@ body {
 
 .faculty-status.checked-out {
   color: #A41D36; /* red */
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #A41D36; /* default red */
+}
+
+.indicator.checked-in {
+  background-color: #2ecc71;
+  box-shadow: 0 0 8px #2ecc71;
+}
+
+.indicator.checked-out {
+  background-color: #A41D36;
 }
