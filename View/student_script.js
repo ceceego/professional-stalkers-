@@ -61,39 +61,54 @@ document.addEventListener("DOMContentLoaded", async () => {
 function createProfessorCard(prof, favorites) {
   const isFavorite = favorites.includes(prof.username);
   const statusClass = prof.current_status === 'checked_in' ? 'checked-in' : 'checked-out';
-  const statusText = prof.current_status === 'checked_in' ? 'Currently Checked In' : 'Currently Checked Out';
+  const statusText = prof.current_status === 'checked_in'
+    ? 'Currently Checked In'
+    : 'Currently Checked Out';
 
+  // OFFICE HOURS LIST with alignment classes
   const officeHoursList = prof.office_hours?.length
     ? prof.office_hours.map(h => `
-        <li>
-          <span class="day">${h.day}</span>
-          <span class="time">${h.start} - ${h.end}</span>
-          <span class="location">(${h.location})</span>
-        </li>`).join("")
+        <li class="oh-row">
+          <span class="oh-day">${h.day}</span>
+          <span class="oh-time">${h.start} - ${h.end}</span>
+          <span class="oh-location">${h.location}</span>
+        </li>
+      `).join("")
     : "<li>No office hours listed</li>";
+
+  // NOTES
+  const notesText =
+    prof.notes && prof.notes.trim() !== ""
+      ? prof.notes
+      : "No notes available";
 
   return `
     <div class="professor-card">
 
       <div class="professor-header">
-
         <div class="professor-info">
           <h3>${prof.firstname} ${prof.lastname}</h3>
 
-          <!-- STATUS (circle + text) -->
           <div class="status-row">
             <div class="indicator ${statusClass}"></div>
             <span class="faculty-status ${statusClass}">${statusText}</span>
           </div>
         </div>
 
-        <button class="favorite-btn ${isFavorite ? 'active' : ''}" 
+        <button class="favorite-btn ${isFavorite ? "active" : ""}"
                 data-username="${prof.username}">★</button>
       </div>
 
       <div class="office-hours">
         <h4>Office Hours</h4>
-        <ul class="office-hours-list">${officeHoursList}</ul>
+        <ul class="office-hours-list">
+          ${officeHoursList}
+        </ul>
+      </div>
+
+      <div class="prof-notes">
+        <h4>Notes</h4>
+        <p class="notes-text">${notesText}</p>
       </div>
 
     </div>`;
