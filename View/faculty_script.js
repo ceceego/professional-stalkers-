@@ -10,6 +10,8 @@ const saveButton = document.querySelector('.save-hours-btn');
 const nextOfficeHoursText = document.querySelector('.next-office-hours');
 const officeInput = document.querySelector(".office-btn-input");
 const saveOfficeBtn = document.querySelector(".save-office-num");
+const notesInput = document.querySelector(".Notes");
+const saveNotesBtn = document.querySelector(".save-notes-btn");
 
 // Header elements
 const userInfo = document.querySelector(".user-info span");
@@ -229,6 +231,37 @@ saveOfficeBtn.addEventListener("click", async () => {
   }
 });
 
+async function loadNotes() {
+  try {
+    const res = await fetch(`http://localhost:5050/faculty/notes/${facultyUsername}`);
+    const data = await res.json();
+
+    notesInput.value = data.notes || "";
+  } catch (err) {
+    console.error("Error loading notes:", err);
+  }
+}
+
+saveNotesBtn.addEventListener("click", async () => {
+  const notes = notesInput.value.trim();
+
+  try {
+    const res = await fetch("http://localhost:5050/faculty/notes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: facultyUsername, notes })
+    });
+
+    const data = await res.json();
+    alert(data.message);
+  } catch (err) {
+    console.error("Error saving notes:", err);
+    alert("Server error saving notes.");
+  }
+});
+
+
 // === INITIALIZE ===
 loadFacultyInfo();
 loadOfficeHours();
+loadNotes();
