@@ -27,7 +27,7 @@ body {
     padding: 20px;
 }
 
-/* Header Styles */
+/* HEADER */
 .header {
     display: flex;
     justify-content: space-between;
@@ -62,15 +62,14 @@ body {
     font-weight: bold;
 }
 
-/* Search Bar */
+/* SEARCH BAR */
 .search-container {
     position: relative;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin: 30px 0;
 }
 
 .search-bar {
-    width:500px;
+    width: 500px;
     padding: 15px 20px;
     border: none;
     border-radius: 10px;
@@ -83,13 +82,14 @@ body {
     outline: 2px solid var(--primary);
 }
 
+/* GRID FOR CARDS */
 .main-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 25px;
 }
 
-/* Professor Card */
+/* PROFESSOR CARD */
 .professor-card {
     background-color: white;
     border-radius: 10px;
@@ -106,16 +106,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .professor-info h3 {
     color: var(--primary);
-}
-
-.professor-info p {
-    color: var(--neutral);
-    font-size: 14px;
+    margin-bottom: 4px;
 }
 
 .favorite-btn {
@@ -131,28 +127,68 @@ body {
     color: gold;
 }
 
-.status-text {
-    font-size: 14px;
-    font-weight: 500;
+/* STATUS ROW */
+.status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #A41D36;
+}
+
+.indicator.checked-in {
+    background-color: #2ecc71;
+    box-shadow: 0 0 8px #2ecc71;
+}
+
+.indicator.checked-out {
+    background-color: #A41D36;
+}
+
+.faculty-status {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.faculty-status.checked-in {
+    color: #2ecc71;
+}
+
+.faculty-status.checked-out {
+    color: #A41D36;
+}
+
+/* OFFICE HOURS */
 .office-hours {
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 .office-hours h4 {
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--primary);
-    font-size: 16px;
+    margin-bottom: 6px;
 }
 
 .office-hours-list {
-    list-style-type: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
+/* Perfect alignment using grid */
 .office-hours-list li {
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 0.8fr; /* day | time | location */
+    align-items: center;
+    padding: 6px 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
 }
 
 .office-hours-list li:last-child {
@@ -160,55 +196,39 @@ body {
 }
 
 .day {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .time {
+    text-align: left;
+    font-weight: 500;
     color: var(--neutral);
 }
 
-/* Section Title */
-.section-title {
-    color: var(--primary);
-    margin: 30px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eaeaea;
+.location {
+    text-align: right;
+    color: #555;
 }
 
-.faculty-status {
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 0.9rem;
-  font-weight: bold;
+/* NOTES SECTION — compact, small, clean */
+.prof-notes {
+    margin-top: 10px;
+    padding: 6px 10px;
+    background: #f3f3f3;
+    border-radius: 8px;
 }
 
-.faculty-status.checked-in {
-  color: #2ecc71; /* green */
+.prof-notes h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-dark);
 }
 
-.faculty-status.checked-out {
-  color: #A41D36; /* red */
-}
-
-.status-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #A41D36; /* default red */
-}
-
-.indicator.checked-in {
-  background-color: #2ecc71;
-  box-shadow: 0 0 8px #2ecc71;
-}
-
-.indicator.checked-out {
-  background-color: #A41D36;
+.prof-notes .notes-text {
+    font-size: 0.85rem;
+    margin-top: 3px;
+    color: #333;
+    line-height: 1.2rem;
+    white-space: pre-line;
 }
