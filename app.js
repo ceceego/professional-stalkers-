@@ -9,10 +9,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ Serve static frontend files
-console.log("Serving static files from:", path.join(__dirname, "View"));
-app.use(express.static(path.join(__dirname, "View")));
-
 // ✅ Default route
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "View", "login_index.html"));
@@ -24,6 +20,10 @@ app.use("/", require("./Routes/login_routes.js"));
 app.use("/", require("./Routes/faculty_routes.js"));
 app.use("/", require("./Routes/student_routes.js"));
 app.use("/", require("./Routes/favorites_routes.js"));
+
+// ✅ Serve static frontend files
+console.log("Serving static files from:", path.join(__dirname, "View"));
+app.use(express.static(path.join(__dirname, "View")));
 
 // ✅ Start server
 const PORT = process.env.PORT || 5050;
