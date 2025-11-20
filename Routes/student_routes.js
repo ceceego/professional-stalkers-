@@ -5,7 +5,7 @@ const db = require("../Config/db.js");
 router.get("/faculty", async (req, res) => {
   try {
     const [facultyRows] = await db.query(
-      "SELECT id, firstname, lastname, username, current_status FROM users WHERE usertype = 'faculty'"
+      "SELECT id, firstname, lastname, username, current_status, notes FROM users WHERE usertype = 'faculty'"
     );
 
     const [officeHourRows] = await db.query(
@@ -20,13 +20,18 @@ router.get("/faculty", async (req, res) => {
         firstname: f.firstname,
         lastname: f.lastname,
         username: f.username,
+
         office_hours: hours.map(h => ({
           day: h.day_of_week,
           start: h.start_time,
           end: h.end_time,
           location: h.location
         })),
-        current_status: f.current_status || 'checked_out' // default if null
+
+        current_status: f.current_status || "checked_out",
+
+        // ✅ NEW: include notes (empty string if null)
+        notes: f.notes || ""
       };
     });
 
@@ -37,7 +42,7 @@ router.get("/faculty", async (req, res) => {
   }
 });
 
-// Get active student's info by username
+// 🧩 Get a single student's info by username
 router.get("/students/:username", async (req, res) => {
   const { username } = req.params;
 
