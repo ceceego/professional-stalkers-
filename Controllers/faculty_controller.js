@@ -1,18 +1,18 @@
 const db = require("../Config/db.js");
 
-// ✅ GET all office hours for a faculty member
+//  GET all office hours for a faculty member
 exports.getOfficeHours = async (req, res) => {
   const { username } = req.query;
   if (!username) return res.status(400).json({ message: "Missing faculty username" });
 
   try {
-    // 1️⃣ Get office hours
+    // Get office hours
     const [officeHoursRows] = await db.query(
       "SELECT day_of_week, start_time, end_time, location FROM office_hours WHERE faculty_username = ?",
       [username]
     );
 
-    // 2️⃣ Get current_status from users table
+    // Get current_status from users table
     const [statusRows] = await db.query(
       "SELECT current_status FROM users WHERE username = ? AND usertype = 'faculty'",
       [username]
@@ -46,10 +46,10 @@ exports.saveOfficeHours = async (req, res) => {
   }
 
   try {
-    // 🧹 Remove old slots for this faculty
+    // Remove old slots for this faculty
     await db.query("DELETE FROM office_hours WHERE faculty_username = ?", [username]);
 
-    // 💾 Insert all new slots
+    // Insert all new slots
     for (const slot of officeHours) {
       const { day_of_week, start_time, end_time, location } = slot;
       await db.query(
@@ -62,5 +62,40 @@ exports.saveOfficeHours = async (req, res) => {
   } catch (err) {
     console.error("Error saving office hours:", err);
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.saveNotes = async (req, res) => {
+  const { username, notes } = req.body;
+
+  if (!username)
+    return res.status(400).json({ message: "Missing username" });
+
+  try {
+    await db.query("UPDATE faculty SET notes = ? WHERE username = ?", [
+      notes,
+      username
+    ]);
+
+    res.json({ message: "Notes saved successfully" });
+  } catch (err) {
+    console.error("Error saving notes:", err);
+    res.status(500).json({ message: "Server error saving notes" });
+  }
+};
+
+exports.getNotes = async (req, res) => {
+  const { username } = req.params;
+
+  try {
+    const [rows] = await db.query(
+      "SELECT notes FROM faculty WHERE username = ?",
+      [username]
+    );
+
+    res.json(rows[0] || { notes: "" });
+  } catch (err) {
+    console.error("Error fetching notes:", err);
+    res.status(500).json({ message: "Server error fetching notes" });
   }
 };
